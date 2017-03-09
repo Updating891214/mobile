@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的收藏 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecdaddy.com">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base.css?v=mzw" />
+</head>
+<body>
+{include file='head4.html'}
+<div style="margin-top: 8px;padding: 10px;background-color: #f2ebe3;border-top: 1px solid #ddd2c0;border-bottom: 1px solid #ddd2c0;box-shadow: inset 0 1px 0 #fff;"> <span class="red">收藏列表</span></div>
+<div class="mc radius" style="margin-top:10px;">
+<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+      <tr align="center">
+        <th width="40%" bgcolor="#ffffff">商品名称</th>
+        <th width="30%" bgcolor="#ffffff">价格</th>
+		<th width="30%" bgcolor="#ffffff">操作</th>
+      </tr>
+      <!--{foreach from=$goods_data item=goods}-->
+      <tr>
+        <td bgcolor="#ffffff" align="center"><a href="{$goods.url}" class="f6">{$goods.goods_name|escape:html}</a></td>
+        <td bgcolor="#ffffff" align="center" style="color:#FF0000"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}-->        </td>
+        <td align="center" bgcolor="#ffffff">
+				
+
+                <a href="javascript:if (confirm('确认取消此商品的关注么？')) location.href='user.php?act=del_attention&rec_id={$goods.rec_id}'" class="f6">取消关注</a>
+
+				
+				
+                 </td>
+      </tr>
+      <!--{/foreach} -->
+    </table>
+</div>
+{include file='foot4.html'}
+</body>
+</html>
