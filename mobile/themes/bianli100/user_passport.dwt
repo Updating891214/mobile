@@ -72,7 +72,7 @@
     </div>
     <div class="bd"<!--{if $action eq 'login'}--> style="display:none"<!--{/if}-->><!-- 添加id，js用到 -->
       <ul style="height:25rem">
-      	<!--{if $enabled_sms_signin eq 1} 支持手机短信功能-->
+        <!--{if $enabled_sms_signin eq 1} 支持手机短信功能-->
         <form action="user.php" method="post" name="formUser" onsubmit="return register2();">
           <input type="hidden" name="flag" id="flag" value="register" />
           <div class="table_box">
@@ -119,8 +119,13 @@
               </dd>
             </dl>
             <dl>
+            <!--
               <dd>
                 <input placeholder="请输入电子邮箱（选填）" class="inputBg" name="email" id="email" type="text" />
+              </dd>
+              -->
+              <dd>
+                <input placeholder="请输入邀请码" class="inputBg" id=“invite” type="text" name="invite">>
               </dd>
             </dl>
             <dl>
@@ -168,11 +173,11 @@
 </section>
 <script type="text/javascript">
 jQuery(function($){
-	$('.hd ul li').click(function(){
-		var index = $('.hd ul li').index(this);
-		$(this).addClass('on').siblings('li').removeClass('on');
-		$('.loginBox .bd:eq('+index+')').show().siblings('.bd').hide();
-	})
+  $('.hd ul li').click(function(){
+    var index = $('.hd ul li').index(this);
+    $(this).addClass('on').siblings('li').removeClass('on');
+    $('.loginBox .bd:eq('+index+')').show().siblings('.bd').hide();
+  })
 })
 </script>
 <!--{/if}--> 
@@ -198,8 +203,8 @@ jQuery(function($){
     </div>
     <div id="tabBox1-bd"><!-- 添加id，js用到 -->
       <ul>
-      	<!--{if $enabled_sms_signin eq 1} 支持手机短信功能-->
-      	<form  action="user.php" method="post" name="getPassword" onSubmit="return submitForget();">
+        <!--{if $enabled_sms_signin eq 1} 支持手机短信功能-->
+        <form  action="user.php" method="post" name="getPassword" onSubmit="return submitForget();">
           <input type="hidden" name="flag" id="flag" value="forget" />
           <div class="table_box">
             <dl>

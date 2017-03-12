@@ -29,14 +29,14 @@ function userEdit()
     msg += no_select_question + '\n';
   }
 
-  for (i = 7; i < frm.elements.length - 2; i++)	// 从第七项开始循环检查是否为必填项
+  for (i = 7; i < frm.elements.length - 2; i++) // 从第七项开始循环检查是否为必填项
   {
-	needinput = document.getElementById(frm.elements[i].name + 'i') ? document.getElementById(frm.elements[i].name + 'i') : '';
+  needinput = document.getElementById(frm.elements[i].name + 'i') ? document.getElementById(frm.elements[i].name + 'i') : '';
 
-	if (needinput != '' && frm.elements[i].value.length == 0)
-	{
-	  msg += needinput.getAttribute('placeholder') + msg_blank + '\n';
-	}
+  if (needinput != '' && frm.elements[i].value.length == 0)
+  {
+    msg += needinput.getAttribute('placeholder') + msg_blank + '\n';
+  }
   }
 
   if (msg.length > 0)
@@ -343,7 +343,7 @@ function check_conform_password( conform_password )
 function is_registered( username )
 {
     var submit_disabled = false;
-	var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
+  var unlen = username.replace(/[^\x00-\xff]/g, "**").length;
 
     if ( username == '' )
     {
@@ -434,7 +434,8 @@ function register()
 {
   var frm  = document.forms['formUser'];
   var username  = Utils.trim(frm.elements['username'].value);
-  var email  = frm.elements['email'].value;
+  //var email  = frm.elements['email'].value;
+  var invite = frm.elements['invite'].value
   var password  = Utils.trim(frm.elements['password'].value);
   var confirm_password = Utils.trim(frm.elements['confirm_password'].value);
   var checked_agreement = frm.elements['agreement'].checked;
@@ -463,7 +464,7 @@ function register()
     //msg += username_shorter + '\n';
   }
 
-  if (email.length == 0)
+  /*if (email.length == 0)
   {
     msg += email_empty + '\n';
   }
@@ -473,6 +474,11 @@ function register()
     {
       msg += email_invalid + '\n';
     }
+  }*/
+
+  if (invite.length == 0) 
+  {
+    msg += invite_empty + '\n';
   }
   if (password.length == 0)
   {
@@ -484,7 +490,7 @@ function register()
   }
   if (/ /.test(password) == true)
   {
-	msg += passwd_balnk + '\n';
+  msg += passwd_balnk + '\n';
   }
   if (confirm_password != password )
   {
@@ -535,14 +541,14 @@ function register()
     msg += no_select_question + '\n';
   }
 
-  for (i = 4; i < frm.elements.length - 4; i++)	// 从第五项开始循环检查是否为必填项
+  for (i = 4; i < frm.elements.length - 4; i++) // 从第五项开始循环检查是否为必填项
   {
-	needinput = document.getElementById(frm.elements[i].name + 'i') ? document.getElementById(frm.elements[i].name + 'i') : '';
+  needinput = document.getElementById(frm.elements[i].name + 'i') ? document.getElementById(frm.elements[i].name + 'i') : '';
 
-	if (needinput != '' && frm.elements[i].value.length == 0)
-	{
-	  msg += '- ' + needinput.innerHTML + msg_blank + '\n';
-	}
+  if (needinput != '' && frm.elements[i].value.length == 0)
+  {
+    msg += '- ' + needinput.innerHTML + msg_blank + '\n';
+  }
   }
 
   if (msg.length > 0)
